@@ -48,3 +48,56 @@ if __name__ == "__main__":
 
     secant(f, x0, x1, y_real)
 ```
+
+1. Fungsi Et, dikalikan 100 untuk menjadikan persen.
+```
+def error_true(y_real, x_n):
+    return abs((y_real - x_n) / y_real) * 100
+```
+
+2. Fungsi Ea, Jika x_n = 0, return infinity (float('inf')) agar tidak terjadi pembagian nol.
+```
+def error_approx(x_n, x_prev):
+    return abs((x_n - x_prev) / x_n) * 100 if x_n != 0 else float('inf')
+```
+
+3. Fungsi Secant
+   - mendefinisikan simbol x, karena akan dipakai di fungsi secantnya kode berikut,
+     ```
+         x = symbols('x')
+     ```
+
+   - menggantikan x di fungsi f dengan x0 atau x1,
+     ```
+         for i in range(max_iter):
+        f_x0 = f.subs(x, x0)
+        f_x1 = f.subs(x, x1)
+
+     ```
+
+   - rumus metode secant.
+     ```
+      x_n = x1 - f_x1 * (x1 - x0) / (f_x1 - f_x0)
+     ```
+
+   - membulatkan hasil menjadi desimal 2 angka di belakang koma, dan print setiap iterasi
+     ```
+       et_value = round(error_true(y_real, x_n), 2)
+        ea_value = round(error_approx(x_n, x1), 2)
+        x_n = round(x_n, 2)
+
+        print(f"Iterasi {i+1}: x_n = {x_n}, Et = {et_value} %, Ea = {ea_value} %")
+
+        x0, x1 = x1, x_n
+     ```
+
+4. Fungsi main (untuk input dari user)
+    - input berupa fungsi f(x), x0, x1, dan y_real, sebagai contoh(nomor 12),
+      ```
+      Enter the function f(x) in terms of x: x**3+6*x**2+19*x-84                                            
+      Enter the initial guess x0: -1
+      Enter the second guess x1: 8
+      Enter the real value y_real: 4
+      ```
+
+
