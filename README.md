@@ -93,11 +93,18 @@ def error_approx(x_n, x_prev):
 
 4. Fungsi main (untuk input dari user)
     - input berupa fungsi f(x), x0, x1, dan y_real, sebagai contoh(nomor 12),
-      ```
+      `
       Enter the function f(x) in terms of x: x**3+6*x**2+19*x-84                                            
       Enter the initial guess x0: -1
       Enter the second guess x1: 8
       Enter the real value y_real: 4
-      ```
+      `
+
+   - maka output akan menghasilkan
+     `
+     Iterasi 1: x_n = -0.17, Et = 104.24 %, Ea = 4820.00000000000 %
+Iterasi 2: x_n = 0.51, Et = 87.32 %, Ea = 133.50 %
+Iterasi 3: x_n = 3.9, Et = 1.37 %, Ea = 87 %
+     `
 
 
